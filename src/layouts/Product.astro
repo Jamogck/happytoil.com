@@ -1,0 +1,98 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Base from './Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Figure from '../components/Figure.astro';
+import Facts from '../components/Facts.astro';
+import { thumbTransitionName } from '../lib/content';
+
+interface Props {
+  entry: CollectionEntry<'products'>;
+}
+
+const { entry } = Astro.props;
+const { title, summary, url, status, year, facts, image, thumb, imageAlt } = entry.data;
+
+const host = url ? new URL(url).host.replace(/^www\./, '') : undefined;
+/** Falls back to the listing thumbnail when there's no separate hero photo. */
+const hero = image ?? thumb;
+---
+
+<Base title={title} description={summary} type="article">
+  <article class="frame">
+    <div class="grid section--tight">
+      <div class="col-intro">
+        <PageHeader label="Products & experiments" title={title} standfirst={summary} meta={`${status} · since ${year}`}>
+          {
+            url && (
+              <p class="product__url">
+                <a href={url} rel="noopener">
+                  {host}
+                </a>
+              </p>
+            )
+          }
+        </PageHeader>
+      </div>
+    </div>
+
+    {
+      hero && (
+        <div class="grid">
+          <div class="col-wide">
+            <Figure
+              src={hero}
+              alt={imageAlt ?? ''}
+              width="wide"
+              loading="eager"
+              transitionName={thumbTransitionName('product', entry.id)}
+            />
+          </div>
+        </div>
+      )
+    }
+
+    <div class="grid section--tight section--flush">
+      <div class="col-reading">
+        <div class="prose prose--with-margins">
+          <slot />
+        </div>
+      </div>
+
+      {
+        facts.length > 0 && (
+          <aside class="col-margin product__facts">
+            <Facts label="Particulars" items={facts} />
+          </aside>
+        )
+      }
+    </div>
+
+    <div class="grid section--tight">
+      <div class="col-reading">
+        <hr class="rule" />
+        <p class="meta product__back">
+          <a href="/products/">All products &amp; experiments</a>
+        </p>
+      </div>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .product__url {
+    margin-top: var(--space-m);
+    font-family: var(--font-sans);
+    font-size: var(--text-label);
+  }
+
+  .product__back {
+    margin-top: var(--space-m);
+  }
+
+  @media (min-width: 64em) {
+    .product__facts {
+      grid-row: 1;
+    }
+  }
+</style>

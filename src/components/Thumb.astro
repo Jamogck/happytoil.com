@@ -1,0 +1,91 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+/**
+ * A small square image for listings. When there's no photograph yet it renders
+ * a ruled blank instead of collapsing, so a list of entries keeps its rhythm.
+ * Decorative by default: the entry title is the accessible name of the link.
+ */
+interface Props {
+  src?: ImageMetadata;
+  /** Only pass this if the image carries information the title doesn't. */
+  alt?: string;
+  /** Rendered size in CSS pixels at the largest layout. */
+  size?: number;
+  sizes?: string;
+  loading?: 'lazy' | 'eager';
+  class?: string;
+  /**
+   * A view-transition name shared with the matching detail-page hero, so the
+   * photograph morphs into place instead of hard-cutting on navigation. Pass
+   * `thumbTransitionName()` from `lib/content` — omit for images that have no
+   * detail-page counterpart (e.g. none, since writing has no thumbnails).
+   */
+  transitionName?: string;
+}
+
+const {
+  src,
+  alt = '',
+  size = 128,
+  sizes = `${size}px`,
+  loading = 'lazy',
+  class: className,
+  transitionName,
+} = Astro.props;
+---
+
+<div
+  class:list={['thumb', className, !src && 'thumb--blank']}
+  transition:name={transitionName}
+>
+  {
+    src && (
+      <Image
+        src={src}
+        alt={alt}
+        width={size}
+        height={size}
+        densities={[1, 2]}
+        sizes={sizes}
+        loading={loading}
+        aria-hidden={alt === '' ? 'true' : undefined}
+      />
+    )
+  }
+</div>
+
+<style>
+  .thumb {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+    background-color: var(--paper-sunk);
+  }
+
+  .thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* No photograph yet: a ruled blank rather than a gap. */
+  .thumb--blank {
+    background-color: transparent;
+    border: 1px solid var(--rule);
+  }
+
+  .thumb--blank::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(
+      to bottom right,
+      transparent calc(50% - 0.5px),
+      var(--rule) calc(50% - 0.5px),
+      var(--rule) calc(50% + 0.5px),
+      transparent calc(50% + 0.5px)
+    );
+  }
+</style>

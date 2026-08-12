@@ -1,0 +1,26 @@
+---
+import Base from './Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+
+interface Props {
+  title: string;
+  label?: string;
+  standfirst?: string;
+  description?: string;
+  size?: 'display' | 'page';
+}
+
+const { title, label, standfirst, description, size = 'page' } = Astro.props;
+---
+
+<Base title={title} description={description ?? standfirst}>
+  <div class="frame">
+    <div class="grid section--tight">
+      <div class="col-intro">
+        <PageHeader label={label} title={title} standfirst={standfirst} size={size} />
+      </div>
+    </div>
+  </div>
+
+  <slot />
+</Base>

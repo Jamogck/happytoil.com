@@ -1,0 +1,68 @@
+---
+import Page from '../../layouts/Page.astro';
+import EntryRow from '../../components/EntryRow.astro';
+import { getWork, yearRange, thumbTransitionName } from '../../lib/content';
+
+const work = await getWork();
+---
+
+<Page
+  label="Work"
+  title="Businesses I’ve worked on"
+  standfirst="Each of these started as a problem somebody had been living with for a while. The deliverables varied. The pattern didn’t: look closely, find what actually matters, then build or decide accordingly."
+  description="Client engagements at Happy Toil — strategy and software for owner-led businesses."
+>
+  <section class="frame section--tight section--flush">
+    <div class="grid">
+      <div class="col-full">
+        {
+          work.length > 0 ? (
+            <ul class="entries">
+              {work.map((entry) => (
+                <EntryRow
+                  href={`/work/${entry.id}/`}
+                  title={entry.data.title}
+                  business={entry.data.business}
+                  summary={entry.data.summary}
+                  aside={yearRange(entry.data.year, entry.data.through)}
+                  withThumb
+                  thumb={entry.data.thumb ?? entry.data.image}
+                  transitionName={thumbTransitionName('work', entry.id)}
+                />
+              ))}
+            </ul>
+          ) : (
+            <p class="quiet">Nothing published here yet.</p>
+          )
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="frame section--tight">
+    <div class="grid">
+      <div class="col-reading">
+        <hr class="rule" />
+        <p class="work__close">
+          Some of the best work isn’t public — internal systems, pricing decisions,
+          succession planning, arguments I lost. If you want to know whether I’ve seen
+          something like your situation, ask.
+        </p>
+        <p>
+          <a class="invitation" href="/contact/"
+            >Tell me about the business <span class="arrow">→</span></a
+          >
+        </p>
+      </div>
+    </div>
+  </section>
+</Page>
+
+<style>
+  .work__close {
+    margin-top: var(--space-l);
+    margin-bottom: var(--space-m);
+    max-width: 32em;
+    color: var(--ink-quiet);
+  }
+</style>

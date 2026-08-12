@@ -1,0 +1,83 @@
+---
+import type { ImageMetadata } from 'astro';
+import Thumb from './Thumb.astro';
+
+/**
+ * One line in a list of things — a project, an essay, a product.
+ * Registers: an image or index numeral, the title and summary, and an aside.
+ *
+ * Pass `withThumb` to open the image column for the whole list; entries with no
+ * photograph get a ruled blank so the rows stay aligned.
+ */
+interface Props {
+  href: string;
+  title: string;
+  /** The business or subject, in the secondary voice. */
+  business?: string;
+  summary?: string;
+  /** Right-hand column: a date, a status, a year. */
+  aside?: string;
+  index?: string;
+  withThumb?: boolean;
+  thumb?: ImageMetadata;
+  /** See Thumb.astro — pairs this row's image with the detail page's hero. */
+  transitionName?: string;
+}
+
+const {
+  href,
+  title,
+  business,
+  summary,
+  aside,
+  index,
+  withThumb = false,
+  thumb,
+  transitionName,
+} = Astro.props;
+---
+
+<li class="entry">
+  <a class:list={['entry__link', withThumb && 'entry__link--thumb']} href={href}>
+    {
+      withThumb && (
+        <Thumb src={thumb} class="entry__thumb" size={128} transitionName={transitionName} />
+      )
+    }
+    {!withThumb && index && <span class="entry__index" aria-hidden="true">{index}</span>}
+
+    <span class="entry__body">
+      <span class="entry__title">{title}</span>
+      {business && <span class="entry__business">{business}</span>}
+      {summary && <span class="entry__summary">{summary}</span>}
+    </span>
+
+    {aside && <span class="entry__aside meta">{aside}</span>}
+  </a>
+</li>
+
+<style>
+  .entry__body {
+    display: block;
+  }
+
+  .entry__title {
+    display: block;
+  }
+
+  .entry__business {
+    display: block;
+    margin-top: var(--space-3xs);
+  }
+
+  .entry__summary {
+    display: block;
+    margin-top: var(--space-2xs);
+  }
+
+  @media (min-width: 48em) {
+    .entry__aside {
+      text-align: end;
+    }
+  }
+</style>

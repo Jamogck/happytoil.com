@@ -1,0 +1,93 @@
+---
+import '@fontsource-variable/source-serif-4/opsz.css';
+import '@fontsource-variable/source-serif-4/opsz-italic.css';
+import '@fontsource-variable/ibm-plex-sans/wght.css';
+import '../styles/global.css';
+
+import { ClientRouter } from 'astro:transitions';
+
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** Absolute or site-relative path to a social image. */
+  image?: string;
+  /** Set for essays so search engines and readers see a date. */
+  publishedTime?: Date;
+  type?: 'website' | 'article';
+  /** Hide primary nav links, keeping just the branding mark. */
+  hideNav?: boolean;
+  /** Hide the site footer entirely. */
+  hideFooter?: boolean;
+}
+
+const {
+  title,
+  description = site.description,
+  image = '/og-default.jpg',
+  publishedTime,
+  type = 'website',
+  hideNav = false,
+  hideFooter = false,
+} = Astro.props;
+
+const pageTitle = title ? `${title} — ${site.name}` : `${site.name} — ${site.person}`;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? site.url);
+const socialImage = new URL(image, Astro.site ?? site.url);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical.href} />
+
+    <link rel="icon" href="/logomark.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/og-default.jpg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={`${site.name} — Writing`}
+      href={new URL('/writing/rss.xml', Astro.site ?? site.url).href}
+    />
+
+    <meta name="author" content={site.person} />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:type" content={type} />
+    <meta property="og:title" content={title ?? site.name} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical.href} />
+    <meta property="og:image" content={socialImage.href} />
+    {publishedTime && <meta property="article:published_time" content={publishedTime.toISOString()} />}
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <meta name="theme-color" content="#F5F3EC" />
+
+    <!--
+      Enables the one shared-element transition the site uses: a listing
+      thumbnail morphing into its detail-page hero (see Thumb.astro,
+      Figure.astro, and thumbTransitionName() in lib/content.ts). Everywhere
+      else, navigation swaps instantly — no page-wide fade. In browsers
+      without native View Transition support, `fallback="swap"` keeps that
+      same instant swap rather than simulating an animation.
+    -->
+    <ClientRouter fallback="swap" />
+    <slot name="head" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <Header showNav={!hideNav} />
+    <main id="main">
+      <slot />
+    </main>
+    {!hideFooter && <Footer />}
+  </body>
+</html>

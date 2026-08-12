@@ -1,0 +1,99 @@
+---
+title: 'Specimen: what an essay looks like here'
+standfirst: A working reference for the typographic pieces available in an essay — kept as a draft so it never ships, useful whenever something new needs setting.
+summary: 'A reference page showing every editorial component available to an essay: subheads, quotes, figures, footnotes, tables, callouts, and marginal notes.'
+published: 2026-08-01
+draft: true
+---
+
+import Figure from '../../components/Figure.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import Callout from '../../components/Callout.astro';
+import MarginNote from '../../components/MarginNote.astro';
+import tools from '../../assets/photos/placeholder-tools.jpg';
+
+Body text is Source Serif 4 at a comfortable size on a measure of roughly sixty-five
+characters. The line length matters more than the size: prose set across a wide screen is
+tiring to read no matter how handsome the face, which is why the reading column here stops
+where it does and the rest of the grid stays empty.
+
+Ordinary emphasis is *italic*, and **bold** exists for the rare occasion when a phrase has
+to be findable by someone skimming. Inline links look [like this](/about/) — near-black
+text with a green underline — so they’re visible in a paragraph without shouting.[^measure]
+
+## A subhead, set in the serif
+
+Subheads use the same face as the body at a modest size increase. They mark a turn in the
+argument rather than announcing a new product feature. Two levels are available, which is
+one more than most essays need.
+
+### A third level, set in the sans
+
+Below the second level the type switches to IBM Plex Sans, which reads as an annotation on
+the argument rather than a division of it.
+
+<MarginNote>
+  Marginal notes sit beside the text on wide screens and fold into the column on narrow
+  ones. Good for an aside that would break the sentence if it were parenthetical.
+</MarginNote>
+
+Lists are set with a small square marker in the deep green — one of the few places brand
+color appears outside the mark:
+
+- A first item, kept to a sentence or so.
+- A second item, which may run longer without looking wrong, because the marker sits
+  outside the measure and the text stays aligned.
+- A third.
+
+> A block quote is indented behind a hairline and set in italic. It’s for someone else’s
+> words, at length — a customer, a book, a report that said something better than a
+> paraphrase would.
+
+<PullQuote cite="A line worth repeating, attributed if it isn’t mine">
+  A pull quote is a line from the essay itself, given room and rules. Use it once, maybe
+  twice — never as decoration for a paragraph that didn’t earn it.
+</PullQuote>
+
+## Evidence
+
+<Figure
+  src={tools}
+  alt="Hand tools on a bench."
+  number="Fig. 1"
+  caption="A caption should add something the photograph can’t: where this is, when, why it mattered. Restating the image is a wasted line."
+  width="wide"
+/>
+
+Photographs work as evidence. A slightly imperfect picture of a real thing beats a polished
+one of nothing in particular, and the crop should follow the subject rather than a template.
+
+<Callout label="A note">
+  Callouts hold a caveat, a definition, or context a reader may not need. They sit beside
+  the argument, marked with a yellow rule, and stay short.
+</Callout>
+
+## Technical matter
+
+Tables are set in the sans, ruled only where a rule helps, and read as though they came out
+of a notebook rather than a marketing deck.
+
+| Enterprise | Hours per week | Gross margin | Notes                          |
+| ---------- | -------------- | ------------ | ------------------------------ |
+| Broilers   | 22             | 41%          | Seasonal, May–October          |
+| Beef       | 6              | 33%          | Sold by the half               |
+| Produce    | 31             | 12%          | Labor not fully counted        |
+
+Code, when an essay needs it, is set in a monospace face at a slightly smaller size:
+
+```js
+const portion = work + food + drink + company;
+```
+
+Footnotes collect at the bottom, numbered, in the smaller sans.[^ecclesiastes] They’re the
+right home for a source, a qualification, or an aside that would otherwise interrupt.
+
+[^measure]: Sixty to seventy characters is the range most typographers land on. This site
+    sits near the upper end because the serif is generous and the leading is loose.
+
+[^ecclesiastes]: The name is an allusion, not a thesis. There’s a fuller account of it on
+    the [about page](/about/).

@@ -1,0 +1,86 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Base from './Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Figure from '../components/Figure.astro';
+import Facts from '../components/Facts.astro';
+import { yearRange, thumbTransitionName } from '../lib/content';
+
+interface Props {
+  entry: CollectionEntry<'work'>;
+}
+
+const { entry } = Astro.props;
+const { title, business, summary, year, through, facts, image, thumb, imageAlt, imageCaption } =
+  entry.data;
+
+/** No separate hero photo yet? Show the listing thumbnail large instead of
+ *  nothing — and it's the same file, so the transition has something to
+ *  morph into either way. */
+const hero = image ?? thumb;
+---
+
+<Base title={title} description={summary} type="article">
+  <article class="frame">
+    <div class="grid section--tight">
+      <div class="col-intro">
+        <PageHeader label="Work" title={title} standfirst={business} meta={yearRange(year, through)} />
+      </div>
+    </div>
+
+    {
+      hero && (
+        <div class="grid">
+          <div class="col-wide">
+            <Figure
+              src={hero}
+              alt={imageAlt ?? ''}
+              caption={imageCaption}
+              width="wide"
+              loading="eager"
+              transitionName={thumbTransitionName('work', entry.id)}
+            />
+          </div>
+        </div>
+      )
+    }
+
+    <div class="grid section--tight section--flush">
+      <div class="col-reading">
+        <div class="prose prose--with-margins">
+          <slot />
+        </div>
+      </div>
+
+      {
+        facts.length > 0 && (
+          <aside class="col-margin project__facts">
+            <Facts label="The engagement" items={facts} />
+          </aside>
+        )
+      }
+    </div>
+
+    <div class="grid section--tight">
+      <div class="col-reading">
+        <hr class="rule" />
+        <p class="meta project__back">
+          <a href="/work/">All work</a> &nbsp;·&nbsp;
+          <a href="/contact/">Tell me about your business</a>
+        </p>
+      </div>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .project__back {
+    margin-top: var(--space-m);
+  }
+
+  @media (min-width: 64em) {
+    .project__facts {
+      grid-row: 1;
+    }
+  }
+</style>

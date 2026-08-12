@@ -1,0 +1,17 @@
+---
+/**
+ * A line from the piece, given room. Set without quotation marks —
+ * the rules and the size do that work.
+ */
+interface Props {
+  /** Attribution, if the line belongs to someone other than the writer. */
+  cite?: string;
+}
+
+const { cite } = Astro.props;
+---
+
+<blockquote class="pullquote">
+  <p><slot /></p>
+  {cite && <cite>{cite}</cite>}
+</blockquote>

@@ -1,0 +1,66 @@
+---
+/**
+ * A short table of plain facts — the engineer’s-notebook register.
+ * Used in the margin of a project or product page.
+ */
+interface Props {
+  label?: string;
+  items: readonly { label: string; value: string }[];
+}
+
+const { label, items } = Astro.props;
+---
+
+{
+  items.length > 0 && (
+    <div class="facts">
+      {label && <p class="label facts__heading">{label}</p>}
+      <dl class="facts__list">
+        {items.map((item) => (
+          <div class="facts__row">
+            <dt>{item.label}</dt>
+            <dd>{item.value}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  )
+}
+
+<style>
+  .facts__heading {
+    padding-bottom: var(--space-2xs);
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: var(--space-xs);
+  }
+
+  .facts__list {
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    line-height: var(--leading-normal);
+    margin: 0;
+  }
+
+  .facts__row {
+    display: grid;
+    grid-template-columns: 6.5rem minmax(0, 1fr);
+    gap: var(--space-2xs);
+    padding-block: var(--space-3xs);
+  }
+
+  .facts__row + .facts__row {
+    border-top: 1px solid var(--rule);
+    padding-top: var(--space-2xs);
+    margin-top: var(--space-2xs);
+  }
+
+  dt {
+    color: var(--ink-quiet);
+  }
+
+  dd {
+    margin: 0;
+    color: var(--ink);
+    text-wrap: pretty;
+  }
+</style>

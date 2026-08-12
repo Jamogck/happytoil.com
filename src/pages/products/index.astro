@@ -1,0 +1,41 @@
+---
+import Page from '../../layouts/Page.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import { getProducts, thumbTransitionName } from '../../lib/content';
+
+const products = await getProducts();
+---
+
+<Page
+  label="Products & experiments"
+  title="Things I’ve built for myself and left running"
+  standfirst="Most of these started as a question I couldn’t find a good answer to. Some became products. Some stayed small on purpose. Not everything needs to become a startup."
+  description="Products and experiments from Happy Toil — calculators, data projects, and agricultural tools."
+>
+  <section class="frame section--tight section--flush">
+    <div class="grid">
+      <div class="col-full">
+        {
+          products.length > 0 ? (
+            <ul class="product-grid">
+              {products.map((entry, i) => (
+                <ProductCard
+                  href={`/products/${entry.id}/`}
+                  title={entry.data.title}
+                  summary={entry.data.summary}
+                  status={entry.data.status}
+                  year={entry.data.year}
+                  thumb={entry.data.thumb ?? entry.data.image}
+                  loading={i < 3 ? 'eager' : 'lazy'}
+                  transitionName={thumbTransitionName('product', entry.id)}
+                />
+              ))}
+            </ul>
+          ) : (
+            <p class="quiet">Nothing published here yet.</p>
+          )
+        }
+      </div>
+    </div>
+  </section>
+</Page>

@@ -1,0 +1,166 @@
+---
+import type { ImageMetadata } from 'astro';
+import Thumb from './Thumb.astro';
+
+/**
+ * A product or experiment as a ruled cell. This is the one place on the site
+ * that uses boxes: the entries are short, unordered, and read best compared
+ * side by side, which is the information problem a grid actually solves.
+ *
+ * Hairlines only — no radius, no shadow, no floating panel.
+ */
+interface Props {
+  href: string;
+  title: string;
+  summary: string;
+  status: string;
+  year: number;
+  thumb?: ImageMetadata;
+  loading?: 'lazy' | 'eager';
+  /** See Thumb.astro — pairs this cell's image with the detail page's hero. */
+  transitionName?: string;
+}
+
+const { href, title, summary, status, year, thumb, loading = 'lazy', transitionName } =
+  Astro.props;
+---
+
+<li class="product">
+  <a class="product__link" href={href}>
+    <Thumb
+      src={thumb}
+      class="product__thumb"
+      size={400}
+      sizes="(min-width: 64em) 22rem, (min-width: 40em) 45vw, 90vw"
+      loading={loading}
+      transitionName={transitionName}
+    />
+
+    <span class="product__text">
+      <span class="product__title">{title}</span>
+      <span class="product__summary">{summary}</span>
+    </span>
+
+    <span class="product__meta">
+      <span>{status}</span>
+      <span class="product__year">{year}</span>
+    </span>
+  </a>
+</li>
+
+<style>
+  .product {
+    border: 1px solid var(--rule);
+  }
+
+  .product__link {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    height: 100%;
+    padding: var(--space-s);
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 120ms ease;
+  }
+
+  .product:hover {
+    border-color: var(--rule-strong);
+  }
+
+  .product__link:hover {
+    color: inherit;
+  }
+
+  .product__text {
+    display: block;
+    margin-top: var(--space-s);
+  }
+
+  .product__title {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: var(--text-lead);
+    font-weight: 600;
+    line-height: var(--leading-snug);
+    letter-spacing: -0.012em;
+    /* Product names are often one long unbroken word. `break-word` rather than
+       `anywhere`, which would shrink the grid track to min-content. */
+    overflow-wrap: break-word;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.16em;
+    transition: text-decoration-color 100ms ease, color 100ms ease;
+  }
+
+  .product__link:hover .product__title,
+  .product__link:focus-visible .product__title {
+    text-decoration-color: var(--ht-green-deep);
+    color: var(--green-text);
+  }
+
+  .product__summary {
+    display: block;
+    margin-top: var(--space-2xs);
+    font-size: var(--text-body);
+    line-height: var(--leading-prose);
+    color: var(--ink-quiet);
+    text-wrap: pretty;
+  }
+
+  .product__meta {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-s);
+    margin-top: var(--space-m);
+    padding-top: var(--space-2xs);
+    border-top: 1px solid var(--rule);
+    font-family: var(--font-sans);
+    font-size: var(--text-xs);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-quiet);
+  }
+
+  .product__year {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .product__link :global(.product__thumb) {
+    /* Wider than tall — these are screens and objects, not portraits. */
+    aspect-ratio: 4 / 3;
+  }
+
+  /* On a phone the cells stack, and a full-width 4:3 image stops being a
+     thumbnail. Sit it beside the text instead, as the work rows do. */
+  @media (max-width: 39.99em) {
+    .product__link {
+      grid-template-columns: 4.5rem minmax(0, 1fr);
+      grid-template-rows: auto auto;
+      column-gap: var(--space-s);
+    }
+
+    /* Long product names have to fit the narrower column without breaking. */
+    .product__title {
+      font-size: var(--text-body);
+    }
+
+    .product__link :global(.product__thumb) {
+      aspect-ratio: 1;
+      grid-column: 1;
+      grid-row: 1;
+      margin-top: 0.25em;
+    }
+
+    .product__text {
+      grid-column: 2;
+      grid-row: 1;
+      margin-top: 0;
+    }
+
+    .product__meta {
+      grid-column: 1 / -1;
+      grid-row: 2;
+    }
+  }
+</style>

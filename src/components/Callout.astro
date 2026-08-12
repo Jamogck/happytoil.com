@@ -1,0 +1,16 @@
+---
+/**
+ * A note that sits beside the argument rather than inside it:
+ * a caveat, a definition, a piece of context the reader may not need.
+ */
+interface Props {
+  label?: string;
+}
+
+const { label } = Astro.props;
+---
+
+<aside class="callout">
+  {label && <p class="label">{label}</p>}
+  <slot />
+</aside>

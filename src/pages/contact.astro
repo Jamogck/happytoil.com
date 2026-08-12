@@ -1,0 +1,81 @@
+---
+import Page from '../layouts/Page.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { site } from '../site';
+---
+
+<Page
+  label="Contact"
+  title="Tell me about the business"
+  standfirst="What it does, what’s been bothering you, and what you’ve already tried. That’s enough to start a useful conversation."
+  description="Get in touch with Jordan Mogck about a project."
+>
+  <section class="frame section--tight section--flush">
+    <div class="grid">
+      <div class="col-reading">
+        <div class="prose">
+          <p>
+            I read everything myself and usually reply within a couple of days. If it’s
+            clearly not a fit, I’ll say so and point you somewhere better if I can think of
+            anywhere.
+          </p>
+          <p>
+            Worth knowing before you write: I take on a few engagements at a time, so the
+            answer sometimes has to be “not until spring.” I’d rather tell you that up
+            front than run a queue.
+          </p>
+        </div>
+
+        <ContactForm />
+
+        {
+          !site.formEndpoint && (
+            <p class="contact__email">
+              <a class="invitation" href={`mailto:${site.email}`}>
+                {site.email} <span class="arrow">→</span>
+              </a>
+            </p>
+          )
+        }
+      </div>
+
+      <aside class="col-margin contact__aside">
+        <p class="label">Also useful</p>
+        <ul class="contact__list meta">
+          <li>A phone call beats a form for anything complicated.</li>
+          <li>
+            If you found me through someone we both know, say who — it saves us both a
+            round of context.
+          </li>
+          <li>
+            Not ready to talk? <a href="/writing/">The essays</a> will tell you how I think
+            about most of this.
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+</Page>
+
+<style>
+  .contact__email {
+    margin-top: var(--space-l);
+  }
+
+  .contact__aside {
+    align-self: start;
+  }
+
+  .contact__list {
+    list-style: none;
+    padding: 0;
+    margin-top: var(--space-s);
+    max-width: 20em;
+  }
+
+  .contact__list li + li {
+    margin-top: var(--space-s);
+    padding-top: var(--space-s);
+    border-top: 1px solid var(--rule);
+  }
+</style>

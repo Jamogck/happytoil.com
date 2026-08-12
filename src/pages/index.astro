@@ -1,0 +1,229 @@
+---
+import Base from '../layouts/Base.astro';
+import EntryRow from '../components/EntryRow.astro';
+import ProductCard from '../components/ProductCard.astro';
+import Logomark from '../components/Logomark.astro';
+import { getWork, getWriting, getProducts, yearRange, thumbTransitionName } from '../lib/content';
+import { formatMonth } from '../site';
+
+const work = await getWork();
+const writing = await getWriting();
+const products = await getProducts();
+
+const featuredWork = work.filter((entry) => entry.data.featured).slice(0, 3);
+const selectedWork = featuredWork.length > 0 ? featuredWork : work.slice(0, 3);
+const recentWriting = writing.slice(0, 4);
+const shownProducts = products.slice(0, 4);
+
+// Launch pivot: homepage shows only the opening statement + practice blurb
+// for now. Flip this back on to restore Work/Writing/Products + nav + footer.
+const SHOW_FULL_HOMEPAGE = false;
+---
+
+<Base hideNav={!SHOW_FULL_HOMEPAGE} hideFooter={!SHOW_FULL_HOMEPAGE}>
+  <!-- The statement. Nothing above it, nothing beside it. -->
+  <section class="frame section opening">
+    <div class="grid">
+      <div class="col-intro">
+        <h1 class="statement">
+          Happy Toil is the digital studio of Jordan Mogck.
+        </h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- How the practice works, stated plainly rather than sold. -->
+  <section class="frame practice">
+    <div class="grid">
+      <div class="col-reading">
+        <div class="prose">
+          <p>
+            My aim is to produce thoughtful and stragic work that gets to the heart 
+            of the challenges my clients face in an efficient and conscientious manner.
+          </p>
+          <p>Most of the time, this takes the shape of</p>
+          <ul>
+            <li>AI workflows & integration</li>
+            <li>Website design + build</li>
+            <li>Custom software</li>
+            <li>Marketing emails, socials, etc.</li>
+          </ul>
+          <p>I work with just a handful of businesses at a time. Attention is my best tool.</p>
+          
+        </div>
+
+        <p class="opening__invitation">
+          <a class="invitation" href="/contact/"
+            >Get in touch<span class="arrow">→</span></a
+          >
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work -->
+  {
+    SHOW_FULL_HOMEPAGE && selectedWork.length > 0 && (
+      <section class="frame section">
+        <div class="grid">
+          <div class="col-full">
+            <div class="section-heading">
+              <h2>Work</h2>
+              <span class="section-heading__aside">
+                <a href="/work/">All engagements</a>
+              </span>
+            </div>
+
+            <ul class="entries">
+              {selectedWork.map((entry) => (
+                <EntryRow
+                  href={`/work/${entry.id}/`}
+                  title={entry.data.title}
+                  business={entry.data.business}
+                  summary={entry.data.summary}
+                  aside={yearRange(entry.data.year, entry.data.through)}
+                  withThumb
+                  thumb={entry.data.thumb ?? entry.data.image}
+                  transitionName={thumbTransitionName('work', entry.id)}
+                />
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <!-- Writing -->
+  {
+    SHOW_FULL_HOMEPAGE && recentWriting.length > 0 && (
+      <section class="frame section">
+        <div class="grid">
+          <div class="col-full">
+            <div class="section-heading">
+              <h2>Writing</h2>
+              <span class="section-heading__aside">
+                <a href="/writing/">The archive</a>
+              </span>
+            </div>
+
+            <ul class="entries">
+              {recentWriting.map((entry) => (
+                <EntryRow
+                  href={`/writing/${entry.id}/`}
+                  title={entry.data.title}
+                  summary={entry.data.summary}
+                  aside={formatMonth(entry.data.published)}
+                />
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <!-- Products & experiments -->
+  {
+    SHOW_FULL_HOMEPAGE && shownProducts.length > 0 && (
+      <section class="frame section">
+        <div class="grid">
+          <div class="col-full">
+            <div class="section-heading">
+              <h2>Products &amp; experiments</h2>
+              <span class="section-heading__aside">
+                <a href="/products/">Everything</a>
+              </span>
+            </div>
+
+            <ul class="product-grid">
+              {shownProducts.map((entry) => (
+                <ProductCard
+                  href={`/products/${entry.id}/`}
+                  title={entry.data.title}
+                  summary={entry.data.summary}
+                  status={entry.data.status}
+                  year={entry.data.year}
+                  thumb={entry.data.thumb ?? entry.data.image}
+                  transitionName={thumbTransitionName('product', entry.id)}
+                />
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+    )
+  }
+</Base>
+
+<style>
+  .statement {
+    font-size: var(--text-2xl);
+    font-weight: 600;
+    letter-spacing: -0.024em;
+    line-height: 1.08;
+    max-width: 13em;
+    margin-top: var(--space-s);
+  }
+
+  .opening {
+    padding-bottom: 0;
+  }
+
+  .practice {
+    padding-block: var(--space-xl) var(--space-2xl);
+  }
+
+  .opening__note {
+    align-self: end;
+  }
+
+  .opening__note .meta {
+    max-width: 22em;
+  }
+
+  @media (min-width: 64em) {
+    .opening__note {
+      padding-bottom: 0.5rem;
+    }
+  }
+
+  .opening__invitation {
+    margin-top: var(--space-l);
+  }
+
+  .mark-block {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-s);
+  }
+
+  .mark-block :global(svg) {
+    height: 2.75rem;
+    width: auto;
+    flex: none;
+  }
+
+  .mark-block__caption {
+    max-width: 12em;
+  }
+
+  @media (min-width: 64em) {
+    .mark-block {
+      display: block;
+    }
+
+    .mark-block__caption {
+      margin-top: var(--space-s);
+    }
+  }
+
+  .closing {
+    margin-top: var(--space-l);
+    font-size: var(--text-lead);
+    line-height: 1.45;
+    max-width: 30em;
+    margin-bottom: var(--space-m);
+    text-wrap: pretty;
+  }
+</style>

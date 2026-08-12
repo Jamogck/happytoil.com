@@ -1,0 +1,130 @@
+---
+import Page from '../layouts/Page.astro';
+import Figure from '../components/Figure.astro';
+import MarginNote from '../components/MarginNote.astro';
+import placeholderField from '../assets/photos/placeholder-field.jpg';
+---
+
+<Page
+  label="About"
+  title="Jordan Mogck"
+  standfirst="I help owner-led businesses think clearly about what they’re doing, and then help them build the thing they decided on."
+  description="About Jordan Mogck and the Happy Toil practice."
+>
+  <section class="frame section--tight section--flush">
+    <div class="grid">
+      <div class="col-reading">
+        <div class="prose prose--with-margins">
+          <p>
+            Most of my work sits between two roles that businesses usually hire separately:
+            the person who helps decide what to do, and the person who builds it. Keeping
+            both in one head means the strategy stays honest about what’s actually
+            buildable, and the software stays honest about what the business actually needs.
+          </p>
+
+          <MarginNote>
+            I take on a small number of engagements at a time. When I’m full, I’ll say so
+            rather than stretch.
+          </MarginNote>
+
+          <p>
+            I’m most useful to businesses rooted in real work — farms, food companies,
+            manufacturers, mills, trades. Operations where the product is physical, the
+            margins are earned, and the owner is close enough to the work to know when an
+            answer doesn’t smell right. These businesses are often underserved by
+            consultants, who tend to arrive with a template, and by software companies,
+            who tend to arrive with a subscription.
+          </p>
+
+          <h2>How I work</h2>
+
+          <p>
+            I start by looking. Usually that means time in the operation: the shop, the
+            barn, the office, whatever spreadsheet everything actually runs on. I’d rather
+            spend the first weeks understanding how money and material move through a
+            business than producing a deck about it.
+          </p>
+
+          <p>
+            Then we argue a bit. Part of what you’re paying for is someone who will
+            question the premise of the assignment. A surprising number of projects are
+            solutions to a problem the business no longer has, or a symptom of one nobody
+            has named yet. It’s cheaper to find that out early.
+          </p>
+
+          <p>
+            After that it’s ordinary work: build the system, write the plan, fix the
+            pricing, train the person who will own it once I’m gone. I try to leave
+            businesses less dependent on me than when I arrived. That’s not modesty — it’s
+            the only version of this that scales down honestly to one person.
+          </p>
+
+          <h2>Beyond the practice</h2>
+
+          <p>
+            Happy Toil is one vocation among several. There’s a farm, a household, family,
+            and a set of long-running experiments that inform the rest of it. Working the
+            land teaches you things about scale, time, and maintenance that are hard to
+            learn from software: that most systems fail slowly, that the fix is usually
+            upstream, and that the season doesn’t care about your roadmap.
+          </p>
+
+          <p>
+            That’s the underlying idea here. Work belongs inside a life, rather than a life
+            organized around work. It shapes how I think about growth, technology, profit,
+            and how many clients one person should have.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="frame section--tight">
+    <div class="grid">
+      <div class="col-wide">
+        <Figure
+          src={placeholderField}
+          alt="A field at the end of the day."
+          number="Fig. 1"
+          caption="Placeholder. Replace with a photograph of the farm, the shop, or a client operation — something that documents real work rather than illustrating it."
+          width="wide"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="frame section--tight">
+    <div class="grid">
+      <div class="col-reading">
+        <div class="prose">
+          <h2>The name</h2>
+          <p>
+            “Happy toil” comes from Ecclesiastes, which spends twelve chapters taking apart
+            every reason a person might have for working — wealth, reputation, legacy,
+            being remembered — and arrives somewhere unexpected. Not that work is
+            meaningless, but that a person’s portion is the work itself: the day, the meal,
+            the company, the labor at hand, received as a gift rather than as leverage
+            against the future.
+          </p>
+          <p>
+            It’s an odd thing to name a consultancy after a book about the limits of
+            ambition. It’s also the most accurate description I have of how I’d like to
+            work, and what I’d like the businesses I work with to be able to do.
+          </p>
+        </div>
+
+        <p class="about__invitation">
+          <a class="invitation" href="/contact/"
+            >Tell me about the business <span class="arrow">→</span></a
+          >
+        </p>
+      </div>
+    </div>
+  </section>
+</Page>
+
+<style>
+  .about__invitation {
+    margin-top: var(--space-xl);
+  }
+</style>

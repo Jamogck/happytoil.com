@@ -1,0 +1,48 @@
+---
+import Logomark from './Logomark.astro';
+import { site } from '../site';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="frame site-footer__inner">
+    <Logomark title={site.name} class="site-footer__mark" />
+    <p class="meta site-footer__line">
+      &copy; {year} {site.person} // <a href={`mailto:${site.email}`}>{site.email}</a>
+    </p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    margin-top: auto;
+    padding-block: var(--space-3xl);
+    border-top: 1px solid var(--rule);
+  }
+
+  .site-footer__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .site-footer :global(.site-footer__mark) {
+    height: 2.5rem;
+    width: auto;
+  }
+
+  .site-footer__line {
+    margin-top: var(--space-l);
+  }
+
+  .site-footer__line a {
+    color: var(--ink-quiet);
+    text-decoration-color: var(--rule-strong);
+  }
+
+  .site-footer__line a:hover {
+    color: var(--green-text);
+  }
+</style>

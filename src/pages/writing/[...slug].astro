@@ -1,0 +1,24 @@
+---
+import { render, type CollectionEntry } from 'astro:content';
+import Essay from '../../layouts/Essay.astro';
+import { getWriting } from '../../lib/content';
+
+export async function getStaticPaths() {
+  const writing = await getWriting();
+  return writing.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<'writing'>;
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<Essay entry={entry}>
+  <Content />
+</Essay>

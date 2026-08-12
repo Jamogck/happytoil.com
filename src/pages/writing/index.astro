@@ -1,0 +1,71 @@
+---
+import Page from '../../layouts/Page.astro';
+import EntryRow from '../../components/EntryRow.astro';
+import { getWriting } from '../../lib/content';
+import { formatMonth } from '../../site';
+
+const writing = await getWriting();
+
+/** Group by year so the archive reads like a shelf rather than a feed. */
+const byYear = new Map<number, typeof writing>();
+for (const entry of writing) {
+  const year = entry.data.published.getUTCFullYear();
+  const bucket = byYear.get(year);
+  if (bucket) bucket.push(entry);
+  else byYear.set(year, [entry]);
+}
+const years = [...byYear.entries()].sort((a, b) => b[0] - a[0]);
+---
+
+<Page
+  label="Writing"
+  title="Essays"
+  standfirst="Notes on vocation, small business, technology, farming, and the parts of the work that don’t fit neatly into any of those."
+  description="Essays by Jordan Mogck on vocation, small business, technology, and farming."
+>
+  <section class="frame section--tight section--flush">
+    <div class="grid">
+      <div class="col-full">
+        {
+          years.length > 0 ? (
+            years.map(([year, entries]) => (
+              <div class="archive-year">
+                <div class="section-heading">
+                  <h2>{year}</h2>
+                </div>
+                <ul class="entries">
+                  {entries.map((entry) => (
+                    <EntryRow
+                      href={`/writing/${entry.id}/`}
+                      title={entry.data.title}
+                      summary={entry.data.summary}
+                      aside={formatMonth(entry.data.published)}
+                    />
+                  ))}
+                </ul>
+              </div>
+            ))
+          ) : (
+            <p class="quiet">Nothing published here yet.</p>
+          )
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="frame section--tight">
+    <div class="grid">
+      <div class="col-reading">
+        <p class="meta">
+          There’s an <a href="/writing/rss.xml">RSS feed</a> if you’d rather not check back.
+        </p>
+      </div>
+    </div>
+  </section>
+</Page>
+
+<style>
+  .archive-year + .archive-year {
+    margin-top: var(--space-xl);
+  }
+</style>

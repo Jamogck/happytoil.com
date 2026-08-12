@@ -1,0 +1,47 @@
+---
+import Page from '../layouts/Page.astro';
+---
+
+<Page
+  label="404"
+  title="That page isn’t here"
+  standfirst="Either it moved, or it never existed, or I took it down. The work is still where it was."
+  description="Page not found."
+>
+  <section class="frame section--tight section--flush">
+    <div class="grid">
+      <div class="col-reading">
+        <ul class="notfound__links">
+          <li><a href="/work/">Work</a></li>
+          <li><a href="/writing/">Writing</a></li>
+          <li><a href="/products/">Products &amp; experiments</a></li>
+          <li><a href="/about/">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</Page>
+
+<style>
+  .notfound__links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid var(--rule);
+    max-width: 24rem;
+  }
+
+  .notfound__links li {
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .notfound__links a {
+    display: block;
+    padding-block: var(--space-s);
+    text-decoration: none;
+  }
+
+  .notfound__links a:hover {
+    color: var(--green-text);
+  }
+</style>

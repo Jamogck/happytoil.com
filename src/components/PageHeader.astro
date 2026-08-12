@@ -1,0 +1,58 @@
+---
+/**
+ * The masthead used at the top of most pages: a small label, a serif
+ * headline, and an optional line of introduction. Nothing else.
+ */
+interface Props {
+  label?: string;
+  title: string;
+  /** Sits under the title in the secondary voice — a business, a subtitle. */
+  standfirst?: string;
+  /** Small type below the title: dates, status, where something ran. */
+  meta?: string;
+  /** Size of the headline. 'display' for landing pages, 'page' elsewhere. */
+  size?: 'display' | 'page';
+}
+
+const { label, title, standfirst, meta, size = 'page' } = Astro.props;
+---
+
+<div class="page-header">
+  {label && <p class="label page-header__label">{label}</p>}
+  <h1 class:list={['page-header__title', `page-header__title--${size}`]}>{title}</h1>
+  {standfirst && <p class="page-header__standfirst">{standfirst}</p>}
+  {meta && <p class="meta page-header__meta">{meta}</p>}
+  <slot />
+</div>
+
+<style>
+  .page-header__label {
+    margin-bottom: var(--space-s);
+  }
+
+  .page-header__title {
+    font-size: var(--text-xl);
+    font-weight: 600;
+    letter-spacing: -0.018em;
+    max-width: 18em;
+  }
+
+  .page-header__title--display {
+    font-size: var(--text-2xl);
+    letter-spacing: -0.022em;
+    max-width: 15em;
+  }
+
+  .page-header__standfirst {
+    margin-top: var(--space-s);
+    font-size: var(--text-lead);
+    line-height: 1.4;
+    color: var(--ink-quiet);
+    max-width: 30em;
+    text-wrap: pretty;
+  }
+
+  .page-header__meta {
+    margin-top: var(--space-m);
+  }
+</style>
