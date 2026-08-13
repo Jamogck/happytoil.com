@@ -11,11 +11,6 @@ export const site = {
   /** Used in <meta name="description"> when a page supplies none. */
   description:
     'Happy Toil is the practice of Jordan Mogck — strategy, software, and sustained attention for owner-led businesses doing real work.',
-  /**
-   * URL that accepts a POST from the contact form. Leave '' and the contact
-   * page falls back to the email address rather than shipping a dead form.
-   */
-  formEndpoint: '',
 } as const;
 
 export const nav = [

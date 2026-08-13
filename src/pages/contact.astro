@@ -1,6 +1,5 @@
 ---
 import Page from '../layouts/Page.astro';
-import ContactForm from '../components/ContactForm.astro';
 import { site } from '../site';
 ---
 
@@ -26,17 +25,11 @@ import { site } from '../site';
           </p>
         </div>
 
-        <ContactForm />
-
-        {
-          !site.formEndpoint && (
-            <p class="contact__email">
-              <a class="invitation" href={`mailto:${site.email}`}>
-                {site.email} <span class="arrow">→</span>
-              </a>
-            </p>
-          )
-        }
+        <p class="contact__email">
+          <a class="invitation" href={`mailto:${site.email}`}>
+            {site.email} <span class="arrow">→</span>
+          </a>
+        </p>
       </div>
 
       <aside class="col-margin contact__aside">
