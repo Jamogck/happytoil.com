@@ -24,3 +24,7 @@ pnpm-debug.log*
 
 # local Claude Code settings (machine-specific permissions)
 .claude/settings.local.json
+
+# Wrangler
+.wrangler/
+.dev.vars
