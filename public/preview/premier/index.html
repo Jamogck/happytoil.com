@@ -1,92 +1,101 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex,nofollow"><title>Premier Millwork | Homepage concept by Happy Toil</title>
-<style>
-:root{--ink:#1c1a17;--paper:#f5f1ea;--oak:#a8743f;--muted:#6b645a;--line:#ddd5c8}
-*{box-sizing:border-box}body{margin:0;font-family:"Helvetica Neue",Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6}
-.serif{font-family:Georgia,"Times New Roman",serif;font-weight:400}
-.concept{background:#111;color:#cfc8bc;font-size:12px;text-align:center;padding:7px;letter-spacing:.04em}
-.concept b{color:#fff}
-nav{display:flex;justify-content:space-between;align-items:center;padding:20px 6vw;border-bottom:1px solid var(--line);background:var(--paper)}
-.logo{font-family:Georgia,serif;font-size:22px;letter-spacing:.14em}.logo small{display:block;font-family:Arial;font-size:10px;letter-spacing:.3em;color:var(--oak)}
-nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0;font-size:14px}nav a{color:inherit;text-decoration:none}
-.btn{display:inline-block;background:var(--oak);color:#fff!important;padding:12px 22px;text-decoration:none;font-size:14px;letter-spacing:.05em;border:0}
-.btn.ghost{background:transparent;border:1px solid #fff}
-.hero{position:relative;min-height:600px;display:flex;align-items:flex-end;color:#fff;background:linear-gradient(180deg,rgba(20,16,12,.25),rgba(20,16,12,.85)),url(assets/h3.jpg) center/cover}
-.hero .in{padding:0 6vw 80px;max-width:900px}.eyebrow{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:#e3c49f}
-.hero h1{font-size:58px;line-height:1.08;margin:14px 0 18px}.hero p{font-size:19px;max-width:620px;color:#eee}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line);background:#fff}
-.stats div{padding:30px 6vw;border-right:1px solid var(--line)}.stats strong{font-family:Georgia;font-size:34px;display:block;font-weight:400}.stats span{font-size:13px;color:var(--muted)}
-section{padding:90px 6vw}h2{font-size:40px;margin:8px 0 20px;line-height:1.15}
-.grid3{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:40px}
-.card{border-top:2px solid var(--oak);padding-top:18px}.card h3{margin:0 0 8px;font-size:18px}.card p{margin:0;color:var(--muted);font-size:15px}
-.dark{background:var(--ink);color:#eee}.dark .muted{color:#aaa}
-.work{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:240px;gap:12px;margin-top:40px}
-.work figure{margin:0;position:relative;overflow:hidden;background:#333}.work img{width:100%;height:100%;object-fit:cover;filter:saturate(.9)}
-.work figcaption{position:absolute;left:0;bottom:0;right:0;padding:14px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;background:linear-gradient(transparent,rgba(0,0,0,.75))}
-.work .big{grid-column:span 2;grid-row:span 2}
-.bid{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;background:#fff}
-form{display:grid;grid-template-columns:1fr 1fr;gap:14px}form label{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-input,select,textarea{width:100%;padding:12px;border:1px solid var(--line);background:var(--paper);font:inherit;margin-top:4px}
-.full{grid-column:1/-1}.drop{border:2px dashed var(--oak);padding:30px;text-align:center;background:#fbf7f1;color:var(--muted)}
-.steps li{margin-bottom:12px}
-.legacy{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}.legacy img{width:100%}
-.timeline{display:flex;gap:30px;margin-top:24px}.timeline div{border-left:2px solid var(--oak);padding-left:12px}.timeline b{font-family:Georgia;font-size:24px;display:block;font-weight:400}
-footer{background:#111;color:#bbb;padding:60px 6vw;display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;font-size:14px}footer a{color:#e3c49f}
-.offerbar{position:sticky;bottom:0;z-index:20;background:#a8743f;color:#fff;padding:14px 6vw;display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:15px;box-shadow:0 -4px 20px rgba(0,0,0,.2)}
-.offerbar strong{font-family:Georgia,serif;font-weight:400;font-size:18px}
-.offerbar span{opacity:.95}
-.offerbar a{color:#fff;border:1px solid rgba(255,255,255,.7);padding:8px 14px;text-decoration:none;font-size:13px;letter-spacing:.04em;white-space:nowrap}
-.note{background:#111;color:#888;font-size:12px;text-align:center;padding:14px;border-top:1px solid #222}
-@media(max-width:820px){nav ul{display:none}nav{padding:14px 5vw}.hero{min-height:520px;grid-template-columns:1fr!important}.hero .ph{min-height:360px}.hero h1{font-size:36px}.hero p{font-size:16px}
-.stats,.grid3,.grid4,.svc,.trio,.sectors,.quotes{grid-template-columns:1fr 1fr!important}.work{grid-template-columns:1fr 1fr;grid-auto-rows:170px}
-.bid,.legacy,.creds,.split,.cases,.gov,.three,.awards,.shop,footer{grid-template-columns:1fr!important;gap:30px}section{padding:56px 5vw}h2{font-size:30px}
-form{grid-template-columns:1fr}.timeline{flex-wrap:wrap}.offerbar{flex-direction:column;align-items:flex-start;padding:12px 5vw}.cols,.awards ul{columns:1}.concept{font-size:11px}}
+<meta name="robots" content="noindex,nofollow"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="icon" href="assets/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png"><title>Premier Millwork & Lumber Co. | Homepage concept by Happy Toil</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<style>:root{--ink:#2a1a12;--paper:#f6ebd7;--accent:#8F2A1B;--accentink:#fff;--muted:#6e5646;--line:#dcc7a6;--body:Verdana,Geneva,sans-serif;--head:Verdana,Geneva,sans-serif;--headw:700}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.6;font-size:17px}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--head);font-weight:var(--headw);line-height:1.12;margin:0 0 16px}
+h2{font-size:38px}
+.concept{background:#111;color:#cfc8bc;font:12px/1.4 Arial,sans-serif;padding:8px 5vw;letter-spacing:.03em}.concept b{color:#fff}
+nav{display:flex;justify-content:space-between;align-items:center;padding:16px 5vw;gap:24px}
+nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-size:15px}nav ul a{text-decoration:none}
+.btn{display:inline-block;background:var(--accent);color:var(--accentink)!important;padding:13px 22px;text-decoration:none;font-size:15px;font-weight:600;border:0;cursor:pointer;font-family:var(--body)}
+.btn.line{background:transparent;border:1px solid currentColor;color:inherit!important}
+section{padding:84px 5vw}
+.wrap{max-width:1180px;margin:0 auto}
+.small{font-size:14px;color:var(--muted)}
+.facts{display:flex;flex-wrap:wrap;gap:8px 28px;padding:18px 5vw;border-bottom:1px solid var(--line);font-size:15px;color:var(--muted)}
+.facts b{color:var(--ink)}
+form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+form label{font-size:13px;font-weight:600;color:var(--muted)}
+input,select,textarea{width:100%;padding:11px;border:1px solid var(--line);background:#fff;font:inherit;font-size:15px;margin-top:4px;color:var(--ink)}
+.full{grid-column:1/-1}
+.drop{border:1px dashed var(--muted);padding:22px;background:#fff;color:var(--muted);font-size:14px}
+footer{padding:48px 5vw;display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:36px;font-size:15px}
+.offerbar{position:sticky;bottom:0;z-index:20;background:#111;color:#eee;padding:14px 5vw;display:flex;justify-content:space-between;align-items:center;gap:20px;font:15px/1.45 Arial,Helvetica,sans-serif;border-top:3px solid var(--accent)}
+.offerbar strong{color:#fff;font-size:16px}.offerbar span{color:#bdbdbd;font-size:14px}
+.offerbar a{background:#fff;color:#111;padding:10px 16px;text-decoration:none;font-weight:700;font-size:14px;white-space:nowrap}
+.note{background:#111;color:#888;font:12px/1.5 Arial,sans-serif;padding:14px 5vw;border-top:1px solid #222}
+@media(max-width:820px){
+ body{font-size:16px}nav ul{display:none}nav .btn{padding:10px 14px;font-size:14px}
+ section{padding:52px 5vw}h2{font-size:28px}
+ .split,.gal,footer,form,.two,.cols3{grid-template-columns:1fr!important}
+ .gal>*{grid-column:auto!important;grid-row:auto!important}
+ .offerbar{flex-direction:column;align-items:flex-start;gap:10px}
+}
+
+body{font-size:15px}h2{font-size:30px;letter-spacing:-.01em}
+nav{background:var(--paper);border-bottom:6px solid var(--accent)}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none}.brand img{height:56px;width:auto}.brand .since{font-size:12px;line-height:1.35;color:var(--muted);border-left:1px solid var(--line);padding-left:14px}
+.brand b{font-size:17px;display:block;color:var(--accent)}.brand span{font-size:12px;color:var(--muted)}
+.hero{display:grid;grid-template-columns:1fr 1.3fr;background:#fff}
+.hero .t{padding:64px 5vw}.hero h1{font-size:38px;color:var(--ink)}.hero p{max-width:520px}
+.hero img{width:100%;height:100%;min-height:460px;object-fit:cover}
+.gal{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:210px;gap:10px;margin-top:30px}
+.gal figure{margin:0;position:relative;overflow:hidden;background:#000}.gal img{width:100%;height:100%;object-fit:cover}
+.gal figcaption{position:absolute;left:0;bottom:0;background:rgba(0,0,0,.72);color:#fff;font-size:13px;padding:6px 10px}
+.g1{grid-column:span 4;grid-row:span 2}.g2,.g3{grid-column:span 2}.g4,.g5,.g6{grid-column:span 2}
+.divs{display:grid;grid-template-columns:1fr 1fr;gap:10px 48px;margin-top:24px}
+.divs div{border-top:1px solid var(--line);padding-top:14px}.divs h3{font-size:16px;color:var(--accent);margin-bottom:4px}
+.divs p{margin:0;font-size:14px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.hist{list-style:none;padding:0;margin:20px 0 0}.hist li{display:flex;gap:18px;padding:10px 0;border-top:1px solid var(--line);font-size:14px}.hist b{min-width:52px;color:var(--accent)}
+.req{background:#fff}
+footer{background:#2a1a12;color:#d9c7ab}footer b{color:#fff}
+@media(max-width:820px){.hero{grid-template-columns:1fr}.hero img{min-height:260px}.hero h1{font-size:28px}.gal{grid-template-columns:1fr 1fr;grid-auto-rows:150px}.g1{grid-column:span 2!important}.divs{grid-template-columns:1fr}.brand img{height:40px;width:auto}.brand .since{display:none}}
 </style></head><body>
-<div class="concept">PREVIEW · Homepage <b>concept</b> by Happy Toil for Premier Millwork &amp; Lumber Co. · Private · Not the official Premier site · $12.5K / 3 weeks gets the full site live</div>
-<nav><div class="logo">PREMIER MILLWORK<small>&amp; LUMBER CO. · SINCE 1950</small></div>
-<ul><li><a href="#capabilities">Capabilities</a></li><li><a href="#work">Projects</a></li><li><a href="#legacy">Company</a></li><li><a href="#contact">Contact</a></li></ul>
-<a class="btn" href="#bid">Request a Bid</a></nav>
-<header class="hero"><div class="in"><div class="eyebrow">AWI Certified Architectural Millwork · Virginia Beach, VA</div>
-<h1 class="serif">Millwork of Distinction, built for the East Coast's general contractors.</h1>
-<p>Custom casework, paneling, radius millwork and circular staircases for courthouses, schools, hospitals, churches and fine homes. Shop drawings to install, under one roof since 1950.</p>
-<p style="margin-top:28px"><a class="btn" href="#bid">Send Us Your Drawings</a> &nbsp; <a class="btn ghost" href="#work">See the Work</a></p></div></header>
-<div class="stats"><div><strong>1950</strong><span>Founded in Virginia Beach</span></div><div><strong>50+</strong><span>Full-time craftsmen &amp; staff</span></div><div><strong>AWI</strong><span>Certified manufacturer</span></div><div><strong>20–30 yrs</strong><span>Typical senior team tenure</span></div></div>
-<section id="capabilities"><div class="eyebrow" style="color:var(--oak)">Capabilities</div><h2 class="serif">Four divisions. One accountable shop.</h2>
-<p style="max-width:640px;color:var(--muted)">GCs partner with us because the finished product doesn't just meet the designer's and owner's expectations. It protects the contractor's reputation too.</p>
-<div class="grid3">
-<div class="card"><h3>Casework</h3><p>Plastic laminate to fine veneered wood cabinetry for classrooms, offices, labs and residences.</p></div>
-<div class="card"><h3>Architectural Millwork</h3><p>Circular staircases, wood doors and paneling, radius molding, curved paneling, reception and office workstations, ornamental detail.</p></div>
-<div class="card"><h3>Moldings</h3><p>Standard profiles in volume, plus custom moldings crafted to match new or historic trim.</p></div>
-<div class="card"><h3>Finishing</h3><p>In-house finishing department. New stains developed or existing stains custom matched.</p></div></div></section>
-<section id="work" class="dark"><div class="eyebrow">Selected Work</div><h2 class="serif">From courtrooms to sanctuaries.</h2>
-<p class="muted">Educational · Government · Medical · Office · Recreational · Religious · Residential · Restaurants · Hospitality · Court Houses</p>
-<div class="work">
-<figure class="big"><img src="assets/gov.jpg" alt=""><figcaption>Government</figcaption></figure>
-<figure><img src="assets/court.jpg" alt=""><figcaption>Court Houses</figcaption></figure>
-<figure><img src="assets/rel.jpg" alt=""><figcaption>Religious</figcaption></figure>
-<figure><img src="assets/edu.jpg" alt=""><figcaption>Educational</figcaption></figure>
-<figure><img src="assets/med.jpg" alt=""><figcaption>Medical</figcaption></figure>
-<figure class="big"><img src="assets/res.jpg" alt=""><figcaption>Residential</figcaption></figure>
-<figure><img src="assets/off.jpg" alt=""><figcaption>Office</figcaption></figure>
-<figure><img src="assets/h0.jpg" alt=""><figcaption>Custom Millwork</figcaption></figure>
-</div></section>
-<section id="bid" class="bid"><div><div class="eyebrow" style="color:var(--oak)">Estimating</div><h2 class="serif">Bidding a project? Send the drawings.</h2>
-<p style="color:var(--muted)">Our estimating team reviews architectural drawings and specs for commercial and residential work along the eastern seaboard.</p>
-<ol class="steps"><li>Upload plans, specs and addenda.</li><li>We confirm scope and bid date.</li><li>You receive a clear, itemized millwork number.</li></ol>
-<p>Prefer email? <a href="#" style="color:var(--oak)">estimating@premiermillwork.com</a></p></div>
-<form onsubmit="return false"><div><label>Name<input></label></div><div><label>Company<input placeholder="GC, architect or designer"></label></div>
+<div class="concept">Homepage <b>concept by Happy Toil</b> for Premier Millwork. Private preview, not the official Premier Millwork site.</div>
+<nav><a class="brand" href="#"><img src="assets/logo/pmw-lockup-maroon.svg" alt="Premier Millwork &amp; Lumber Co." width="220" height="56"><span class="since">Virginia Beach, Virginia<br>since 1950</span></a>
+<ul><li><a href="#work">Work</a></li><li><a href="#about">About</a></li><li><a href="#bid">Request a bid</a></li></ul><a class="btn" href="#bid">Send drawings</a></nav>
+<header class="hero"><div class="t"><h1>Architectural millwork and casework, built in Virginia Beach since 1950.</h1>
+<p>Casework, paneling, radius millwork, moldings and circular staircases for general contractors, architects and designers. Schools, courthouses, hospitals, churches, offices and homes along the East Coast.</p>
+<p style="margin-top:26px"><a class="btn" href="#bid">Send drawings for a bid</a></p>
+<p class="small" style="margin-top:20px">AWI certified. 517 Viking Dr., Virginia Beach. (757) 463-8870</p></div>
+<img src="assets/h3.jpg" alt="Premier millwork interior"></header>
+<section id="work"><div class="wrap"><h2>Recent work</h2><p style="max-width:640px">Educational, government, medical, office, religious, hospitality and residential projects.</p>
+<div class="gal">
+<figure class="g1"><img src="assets/gov.jpg" alt=""><figcaption>Custom moldings</figcaption></figure>
+<figure class="g2"><img src="assets/court.jpg" alt=""><figcaption>Court houses</figcaption></figure>
+<figure class="g3"><img src="assets/rel.jpg" alt=""><figcaption>Religious</figcaption></figure>
+<figure class="g4"><img src="assets/edu.jpg" alt=""><figcaption>Educational</figcaption></figure>
+<figure class="g5"><img src="assets/med.jpg" alt=""><figcaption>Medical</figcaption></figure>
+<figure class="g6"><img src="assets/res.jpg" alt=""><figcaption>Residential</figcaption></figure>
+</div>
+<div class="divs">
+<div><h3>Casework</h3><p>Plastic laminate to fine veneered wood cabinetry for classrooms, offices, labs and homes.</p></div>
+<div><h3>Architectural millwork</h3><p>Circular stairs, wood doors and paneling, radius and curved work, reception desks.</p></div>
+<div><h3>Moldings</h3><p>Standard profiles in volume. Custom profiles made to match new or historic trim.</p></div>
+<div><h3>Finishing</h3><p>In-house finishing. New stains developed or existing stains matched.</p></div>
+</div></div></section>
+<section id="about" style="background:#fff"><div class="wrap split"><img src="assets/h1.jpg" alt="Premier millwork lobby" style="width:100%;height:420px;object-fit:cover">
+<div><h2>A family-run shop on Viking Drive</h2>
+<p>Paul Gallup started Premier on Birdneck Road in 1950 as a small custom millwork company. George R. Melnyk, Sr. bought it in 1974 and moved it to Viking Drive in 1984 to keep up with commercial work. George R. Melnyk, Jr. runs it today, with more than 50 people on staff and senior team members who have been here 20 to 30 years.</p>
+<ul class="hist"><li><b>1950</b>Founded on Birdneck Road</li><li><b>1974</b>Melnyk family takes over</li><li><b>1984</b>Moves to 517 Viking Dr.</li><li><b>Today</b>50+ staff, AWI certified</li></ul></div></div></section>
+<section id="bid"><div class="wrap split"><div><h2>Request a bid</h2>
+<p>Send plans, specs and addenda. We'll confirm scope and bid date, then send back an itemized millwork number.</p>
+<p>Or email <a href="mailto:estimating@premiermillwork.com">estimating@premiermillwork.com</a><br>Phone (757) 463-8870</p></div>
+<form onsubmit="return false"><div><label>Name<input></label></div><div><label>Company<input></label></div>
 <div><label>Email<input></label></div><div><label>Phone<input></label></div>
-<div><label>Project name &amp; location<input></label></div><div><label>Bid due date<input type="date"></label></div>
-<div class="full"><label>Project type<select><option>Educational</option><option>Government / Court House</option><option>Medical</option><option>Office</option><option>Religious</option><option>Hospitality / Restaurant</option><option>Residential</option></select></label></div>
-<div class="full drop"><b>Drop drawings &amp; specs here</b><br>PDF, DWG or ZIP · up to 500 MB</div>
-<div class="full"><label>Scope notes<textarea rows="3" placeholder="Casework, paneling, stairs, finish requirements, AWI grade..."></textarea></label></div>
-<div class="full"><button class="btn">Submit for Estimate</button></div></form></section>
-<section id="legacy" class="legacy"><img src="assets/h1.jpg" alt=""><div><div class="eyebrow" style="color:var(--oak)">Since 1950</div><h2 class="serif">Seventy-plus years. One Virginia Beach shop.</h2>
-<p>Founded by Paul Gallup on Birdneck Road as a small custom millwork company, Premier was purchased by George R. Melnyk, Sr. in 1974 and moved to Viking Drive in 1984 to meet growing commercial demand. Today it's led by George R. Melnyk, Jr., with a senior team whose tenure runs decades deep.</p>
-<div class="timeline"><div><b>1950</b>Founded</div><div><b>1974</b>Melnyk family</div><div><b>1984</b>Viking Drive</div><div><b>Today</b>50+ team, East Coast</div></div></div></section>
-<footer id="contact"><div><div class="logo" style="color:#fff">PREMIER MILLWORK<small>&amp; LUMBER CO., INC.</small></div><p>AWI certified architectural millwork for general contractors, architects and designers.</p></div>
-<div><b style="color:#fff">Visit</b><br>517 Viking Dr.<br>Virginia Beach, VA 23452</div>
-<div><b style="color:#fff">Contact</b><br>(757) 463-8870<br><a href="#">estimating@premiermillwork.com</a></div></footer>
-<div class="offerbar"><div><strong>$12,500 · 3 weeks</strong><br><span>This whole homepage concept, live on your domain - Happy Toil website sprint.</span></div><a href="mailto:jordan@happytoil.com?subject=Premier%20website%20sprint">Reply to Jordan</a></div>
-<div class="note">Concept by Happy Toil · Uses public photos and text from premiermillwork.com for illustration only · Not affiliated with or endorsed by Premier Millwork.</div>
+<div><label>Project and location<input></label></div><div><label>Bid due<input type="date"></label></div>
+<div class="full drop"><b>Attach drawings and specs</b> (PDF, DWG or ZIP)</div>
+<div class="full"><label>Scope notes<textarea rows="3"></textarea></label></div>
+<div class="full"><button class="btn">Send for estimate</button></div></form></div></section>
+<footer id="contact"><div><b>Premier Millwork &amp; Lumber Co., Inc.</b><p>AWI certified architectural millwork since 1950.</p></div>
+<div><b>Visit</b><br>517 Viking Dr.<br>Virginia Beach, VA 23452</div>
+<div><b>Contact</b><br>(757) 463-8870<br><a href="mailto:estimating@premiermillwork.com">estimating@premiermillwork.com</a></div></footer>
+<div class="offerbar"><div><strong>This is your new homepage. Live on your domain in 2 weeks for $4,500.</strong><br><span>It's the starting point. After launch, Happy Toil can build the tools that save your shop time: bid and quote intake, project portals, and quoting.</span></div><a href="mailto:jordan@happytoil.com?subject=Premier%20Millwork%20homepage">Email Jordan</a></div>
+<div class="note">Concept by Happy Toil. Uses public photos and text from premiermillwork.com for illustration only. Not affiliated with or endorsed by Premier Millwork &amp; Lumber Co., Inc..</div>
 </body></html>
