@@ -6,5 +6,8 @@
     "directory": "./dist",
     "binding": "ASSETS",
     "not_found_handling": "404-page"
+  },
+  "vars": {
+    "PREVIEW_WEBHOOK_URL": "https://api2.cursor.sh/automations/webhook/3638dd9c-97fd-5db1-afe5-bf5f65c7d17d"
   }
 }
