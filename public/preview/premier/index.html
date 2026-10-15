@@ -2,7 +2,7 @@
 <meta name="robots" content="noindex,nofollow"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="icon" href="assets/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png"><title>Premier Millwork & Lumber Co. | Homepage concept by Happy Toil</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<style>:root{--ink:#2a1a12;--paper:#f6ebd7;--accent:#8F2A1B;--accentink:#fff;--muted:#6e5646;--line:#dcc7a6;--body:Verdana,Geneva,sans-serif;--head:Verdana,Geneva,sans-serif;--headw:700}
+<style>:root{--gut:max(5vw,calc((100vw - 1320px)/2));--ink:#2a1a12;--paper:#f6ebd7;--accent:#8F2A1B;--accentink:#fff;--muted:#6e5646;--line:#dcc7a6;--body:Verdana,Geneva,sans-serif;--head:Verdana,Geneva,sans-serif;--headw:700}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
 body{margin:0;font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.6;font-size:17px}
 img{display:block;max-width:100%}
@@ -41,9 +41,20 @@ body{font-size:15px}h2{font-size:30px;letter-spacing:-.01em}
 nav{background:var(--paper);border-bottom:6px solid var(--accent)}
 .brand{display:flex;align-items:center;gap:14px;text-decoration:none}.brand img{height:56px;width:auto}.brand .since{font-size:12px;line-height:1.35;color:var(--muted);border-left:1px solid var(--line);padding-left:14px}
 .brand b{font-size:17px;display:block;color:var(--accent)}.brand span{font-size:12px;color:var(--muted)}
-.hero{display:grid;grid-template-columns:1fr 1.3fr;background:#fff}
-.hero .t{padding:64px 5vw}.hero h1{font-size:38px;color:var(--ink)}.hero p{max-width:520px}
-.hero img{width:100%;height:100%;min-height:460px;object-fit:cover}
+.wrap{max-width:1320px}
+nav{padding-left:var(--gut);padding-right:var(--gut)}
+.hero{--gut:max(5vw,calc((100vw - 1320px)/2));display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.12fr);gap:clamp(40px,4.5vw,72px);align-items:center;background:var(--paper);padding:clamp(40px,5vw,64px) var(--gut);border-bottom:1px solid var(--line)}
+.hero .t{max-width:600px}
+.hero h1{font-size:clamp(34px,2.6vw,48px);line-height:1.1;color:var(--ink);letter-spacing:-.015em;margin-bottom:20px}
+.hero .lede{font-size:clamp(15px,1.05vw,17px);line-height:1.65;margin:0 0 28px;max-width:540px}
+.hero .addr{font-size:14px;color:var(--muted);margin:18px 0 0}
+.hero .ph{margin:0;position:relative}
+.hero .ph img{width:100%;height:clamp(420px,68vh,640px);object-fit:cover;object-position:center 55%}
+.hero .ph figcaption{font-size:12px;color:var(--muted);margin-top:8px}
+.cred{display:grid;grid-template-columns:repeat(4,auto);justify-content:start;gap:0;margin:34px 0 0;padding:0;border-top:1px solid var(--line)}
+.cred div{padding:14px 26px 0 0;margin-right:26px;border-right:1px solid var(--line)}.cred div:last-child{border-right:0;margin-right:0;padding-right:0}
+.cred dt{font-size:clamp(20px,1.6vw,26px);font-weight:700;color:var(--accent);line-height:1.1}
+.cred dd{margin:4px 0 0;font-size:12px;color:var(--muted);line-height:1.35}
 .gal{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:210px;gap:10px;margin-top:30px}
 .gal figure{margin:0;position:relative;overflow:hidden;background:#000}.gal img{width:100%;height:100%;object-fit:cover}
 .gal figcaption{position:absolute;left:0;bottom:0;background:rgba(0,0,0,.72);color:#fff;font-size:13px;padding:6px 10px}
@@ -55,16 +66,17 @@ nav{background:var(--paper);border-bottom:6px solid var(--accent)}
 .hist{list-style:none;padding:0;margin:20px 0 0}.hist li{display:flex;gap:18px;padding:10px 0;border-top:1px solid var(--line);font-size:14px}.hist b{min-width:52px;color:var(--accent)}
 .req{background:#fff}
 footer{background:#2a1a12;color:#d9c7ab}footer b{color:#fff}
-@media(max-width:820px){.hero{grid-template-columns:1fr}.hero img{min-height:260px}.hero h1{font-size:28px}.gal{grid-template-columns:1fr 1fr;grid-auto-rows:150px}.g1{grid-column:span 2!important}.divs{grid-template-columns:1fr}.brand img{height:40px;width:auto}.brand .since{display:none}}
+@media(max-width:820px){.hero{grid-template-columns:1fr;padding:36px 5vw 40px;gap:28px}.hero .ph{order:-1;margin:-36px -5vw 0}.hero .ph img{height:260px}.hero .ph figcaption{padding:0 5vw}.hero h1{font-size:28px}.cred{grid-template-columns:1fr 1fr;gap:0 18px}.cred div{border-right:0;margin-right:0;padding-right:0}.gal{grid-template-columns:1fr 1fr;grid-auto-rows:150px}.g1{grid-column:span 2!important}.divs{grid-template-columns:1fr}.brand img{height:40px;width:auto}.brand .since{display:none}}
 </style></head><body>
 <div class="concept">Homepage <b>concept by Happy Toil</b> for Premier Millwork. Private preview, not the official Premier Millwork site.</div>
 <nav><a class="brand" href="#"><img src="assets/logo/pmw-lockup-maroon.svg" alt="Premier Millwork &amp; Lumber Co." width="220" height="56"><span class="since">Virginia Beach, Virginia<br>since 1950</span></a>
 <ul><li><a href="#work">Work</a></li><li><a href="#about">About</a></li><li><a href="#bid">Request a bid</a></li></ul><a class="btn" href="#bid">Send drawings</a></nav>
 <header class="hero"><div class="t"><h1>Architectural millwork and casework, built in Virginia Beach since 1950.</h1>
-<p>Casework, paneling, radius millwork, moldings and circular staircases for general contractors, architects and designers. Schools, courthouses, hospitals, churches, offices and homes along the East Coast.</p>
-<p style="margin-top:26px"><a class="btn" href="#bid">Send drawings for a bid</a></p>
-<p class="small" style="margin-top:20px">AWI certified. 517 Viking Dr., Virginia Beach. (757) 463-8870</p></div>
-<img src="assets/h3.jpg" alt="Premier millwork interior"></header>
+<p class="lede">Casework, paneling, radius millwork, moldings and circular staircases for general contractors, architects and designers. Schools, courthouses, hospitals, churches, offices and homes along the East Coast.</p>
+<a class="btn" href="#bid">Send drawings for a bid</a>
+<p class="addr">517 Viking Dr., Virginia Beach. (757) 463-8870</p>
+<dl class="cred"><div><dt>1950</dt><dd>Founded in<br>Virginia Beach</dd></div><div><dt>AWI</dt><dd>Certified<br>millwork shop</dd></div><div><dt>50+</dt><dd>People on<br>staff</dd></div><div><dt>In-house</dt><dd>Finishing and<br>stain matching</dd></div></dl></div>
+<figure class="ph"><img src="assets/h3.jpg" alt="Paneled office with built-in bookcases and mantel by Premier Millwork"></figure></header>
 <section id="work"><div class="wrap"><h2>Recent work</h2><p style="max-width:640px">Educational, government, medical, office, religious, hospitality and residential projects.</p>
 <div class="gal">
 <figure class="g1"><img src="assets/gov.jpg" alt=""><figcaption>Custom moldings</figcaption></figure>

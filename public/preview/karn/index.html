@@ -83,6 +83,8 @@ footer{background:var(--navy2);color:#d4e2ee}footer b{color:#fff}
  #work .gal{display:block!important}#work .gal figure{height:250px;margin-bottom:10px}#work .gal figure.tall{height:320px}
  .sectors{grid-template-columns:1fr}.sector .thumb{display:none}.crew{grid-template-columns:1fr}.crew figure{height:340px}.creds{grid-template-columns:1fr 1fr}
 }
+/* wide-viewport alignment: line nav, hero text and strips up with the 1180px content column */
+:root{--gut:max(5vw,calc((100vw - 1180px)/2))}nav,.facts{padding-left:var(--gut);padding-right:var(--gut)}.hero .t{padding-left:var(--gut);max-width:calc(var(--gut) + 760px)}.hero .credit{right:var(--gut)}
 </style></head><body>
 <div class="concept">Homepage <b>concept by Happy Toil</b> for Karn Custom Woodwork. Private preview, not the official Karn Custom Woodwork site.</div>
 <nav><a class="brand" href="#"><img src="assets/logo.png" alt="Karn logo"><div><b>KARN</b><span>Custom Woodwork, Richmond VA</span></div></a>
