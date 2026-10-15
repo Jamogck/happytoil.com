@@ -6,7 +6,12 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://happytoil.com',
-  integrations: [mdx(), sitemap()],
+  integrations: [
+    mdx(),
+    sitemap({
+      filter: (page) => !page.startsWith('https://happytoil.com/preview/'),
+    }),
+  ],
   trailingSlash: 'always',
   build: {
     format: 'directory',
