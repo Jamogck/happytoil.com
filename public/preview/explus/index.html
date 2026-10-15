@@ -53,6 +53,8 @@ nav{background:#222121;color:#fff}nav img{height:34px;width:auto}
 table{border-collapse:collapse;width:100%;font-size:15px}td{padding:10px 0;border-bottom:1px solid #555;vertical-align:top}td:first-child{color:#bbb;width:40%}
 footer{background:#222121;color:#bbb}footer b{color:#fff}
 @media(max-width:820px){.hero{grid-template-columns:1fr}.hero img{min-height:280px}.hero h1{font-size:32px}.gal{grid-auto-rows:220px}}
+/* wide-viewport alignment: line nav, hero text and strips up with the 1180px content column */
+:root{--gut:max(5vw,calc((100vw - 1180px)/2))}nav,.clients{padding-left:var(--gut);padding-right:var(--gut)}.hero .t{padding-left:var(--gut)}
 </style></head><body>
 <div class="concept">Homepage <b>concept by Happy Toil</b> for Explus. Private preview, not the official Explus site.</div>
 <nav><a href="#"><img src="assets/logo-white.png" alt="Explus, GSA"></a>
